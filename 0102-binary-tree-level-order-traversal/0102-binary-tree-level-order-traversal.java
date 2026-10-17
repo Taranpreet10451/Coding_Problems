@@ -15,24 +15,17 @@
  */
 class Solution {
     List<List<Integer>> result=new ArrayList<>();
-    
     public List<List<Integer>> levelOrder(TreeNode root) {
-        //add root
         if(root==null)
-        {
             return result;
-        }
-        List<Integer> list=new ArrayList<>();
         order(root,0);
         return result;
     }
     private void order(TreeNode root,int l){
         if(root==null)
             return;
-        
-        if(l==result.size()){
+        if(l==result.size())
             result.add(new ArrayList<>());
-        }
         if(root!=null)
             result.get(l).add(root.val);
         order(root.left,l+1);
